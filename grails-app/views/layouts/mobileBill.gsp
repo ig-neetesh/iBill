@@ -14,10 +14,11 @@
     <link rel="apple-touch-icon" sizes="114x114" href="${assetPath(src: 'apple-touch-icon-retina.png')}">
     <asset:stylesheet src="application.css"/>
 
-    <asset:javascript src="jquery-1.7.1.min.js"/>
+    <asset:javascript src="jquery.min.js"/>
     <asset:javascript src="angular.min.js"/>
     <asset:javascript src="right-menu.js"/>
     <asset:javascript src="jspdf.min.js"/>
+    <asset:javascript src="html2canvas.min.js"/>
     <asset:javascript src="jquery-ui.js"/>
     <asset:javascript src="application.js"/>
     <g:layoutHead/>
@@ -26,7 +27,8 @@
 <body ng-app="BillGenerator" ng-controller="BillInfoCtrl">
 <div class="cbp-spmenu-push">
     <nav class="cbp-spmenu cbp-spmenu-vertical cbp-spmenu-right" id="menu">
-        <h3>Control</h3>
+        <div class="menu-handler" onclick="RightMenu.toggle(this)"></div>
+        <h3 class="pad20">Control</h3>
         <input type="checkbox" ng-model="contenteditable">Edit content
 
         <div id="accordion">
@@ -65,10 +67,6 @@
     <div class="container">
         <div class="main" contenteditable="{{contenteditable}}">
             <g:layoutBody/>
-            <section>
-                <h2>Slide Menus</h2>
-                <button onclick="RightMenu.toggle()">Show/Hide Controls</button>
-            </section>
         </div>
     </div>
 </div>
