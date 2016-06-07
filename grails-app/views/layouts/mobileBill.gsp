@@ -28,38 +28,120 @@
 <div class="cbp-spmenu-push">
     <nav class="cbp-spmenu cbp-spmenu-vertical cbp-spmenu-right" id="menu">
         <div class="menu-handler" onclick="RightMenu.toggle(this)"></div>
+
         <h3 class="pad20">Control</h3>
-        <input type="checkbox" ng-model="contenteditable">Edit content
+
+        <div class="control-page">
+            <input type="checkbox" id="freeHandEditing" ng-model="contenteditable">
+            <label for="freeHandEditing">Edit page like a document</label>
+
+            <div class="clearfix"></div>
+        </div>
 
         <div id="accordion">
             <h3>User info</h3>
 
             <div>
-                <input type="text" ng-model="name" placeholder="Name">
-                <input type="number" ng-model="relationshipNumber" placeholder="Relationship Number">
-                <input type="text" ng-model="mobileNumber" placeholder="Mobile number">
-                <textarea ng-model="address" placeholder="Address"></textarea>
-                <input type="text" ng-model="city" placeholder="City">
-                <input type="text" ng-model="pincode" placeholder="Pincode">
-                <input type="text" ng-model="landmark" placeholder="Landmark">
+                <div class="control-panel push-left">
+                    <input type="text" ng-model="name" placeholder="Name">
+                    <input type="number" ng-model="relationshipNumber" placeholder="Relationship Number">
+                    <input type="text" ng-model="mobileNumber" placeholder="Mobile number">
+                </div>
+
+                <div class="control-panel push-right">
+                    <textarea ng-model="address" placeholder="Address"></textarea>
+                    <input type="text" ng-model="city" placeholder="City">
+                    <input type="text" ng-model="pincode" placeholder="Pincode">
+                    <input type="text" ng-model="landmark" placeholder="Landmark">
+                </div>
+
+                <div class="clearfix"></div>
             </div>
 
-            <h3>Bill Info</h3>
+            <h3>Bill info</h3>
 
             <div>
-                <input type="number" ng-model="billNumber" placeholder="Bill Number">
-                <input type="date" ng-model="billDate" placeholder="Bill date">
-                <input type="date" ng-model="payByDate" placeholder="Pay by date">
-                <input type="date" ng-model="fromDate" placeholder="From date">
-                <input type="date" ng-model="toDate" placeholder="To date">
+                <div class="control-panel push-left">
+                    <input type="number" ng-model="billNumber" placeholder="Bill Number">
+                    <input type="text" ng-model="creditLimit" placeholder="Credit Limit">
+                    <input type="text" ng-model="securityDeposite" placeholder="Security Deposite">
 
-                <input type="text" ng-model="creditLimit" placeholder="Credit Limit">
-                <input type="text" ng-model="securityDeposite" placeholder="Security Deposite">
+                </div>
+
+                <div class="control-panel push-right">
+                    <input type="date" ng-model="billDate" placeholder="Bill date">
+                    <input type="date" ng-model="payByDate" placeholder="Pay by date">
+                    <input type="date" ng-model="fromDate" placeholder="From date">
+                    <input type="date" ng-model="toDate" placeholder="To date">
+                </div>
+
+                <div class="clearfix"></div>
             </div>
-            <h3>Bill Info</h3>
-        </div>
 
-        <input type="text" name="aaa" placeholder="Bill">
+            <h3>Old bill info</h3>
+
+            <div>
+                <div class="info-panel">Please fill exact numbers!!! We will create formula using these numbers. So we can perfectly calculate your new bill.</div>
+
+                <div>
+                    <input type="number" ng-model="billBreakup.monthlyCharges" placeholder="Monthly charges">
+                </div>
+
+                <div class="border-top control-panel-full">
+                    <div class="control-panel push-left">
+                        <input type="number" ng-model="billBreakup.callCharges" placeholder="Call charges">
+                        <input type="number" ng-model="billBreakup.mobileInternetUsage"
+                               placeholder="Mobile internet usage">
+                    </div>
+
+                    <div class="control-panel push-right">
+                        <input type="number" ng-model="billBreakup.valueAddedServices"
+                               placeholder="Value added services">
+                        <input type="number" ng-model="billBreakup.roaming" placeholder="Roaming">
+                    </div>
+
+                    <div class="clearfix"></div>
+                </div>
+
+                <div class="border-top">
+                    <div class="control-panel push-left">
+                        <input type="number" ng-model="billBreakup.discounts" placeholder="Discounts">
+                    </div>
+
+                    <div class="control-panel push-right">
+                        <input type="number" ng-model="billBreakup.taxes" placeholder="Taxes">
+                    </div>
+
+                    <div class="clearfix"></div>
+                </div>
+
+                <div class="border-top">
+                    <input type="number" ng-model="billBreakup.totalBillAmount" placeholder="Total bill amount">
+                </div>
+            </div>
+
+            <h3>Desired bill charges</h3>
+
+            <div>
+                <div>
+                    <div class="control-panel push-left">
+
+                        <input type="number" ng-model="billSummary.previousBalance" placeholder="Previous balance">
+                    </div>
+
+                    <div class="control-panel push-right">
+                        <input type="number" ng-model="billSummary.previousPayment" placeholder="Previous payment">
+                    </div>
+
+                    <div class="clearfix"></div>
+                </div>
+
+                <div class="border-top">
+                    <input type="number" ng-model="billSummary.newBillAmount" placeholder="New bill amount">
+                </div>
+            </div>
+        </div>
+        <button ng-click="calculate()">Calculate</button>
 
         <button onclick="Html2Pdf.download('.container', 'MyFile.pdf')">Download</button>
     </nav>

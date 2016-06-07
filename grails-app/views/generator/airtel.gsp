@@ -790,7 +790,7 @@
 
     <div id="t7_1" class="t s2_1">monthly charges</div>
 
-    <div id="t8_1" class="t s2_1">399.00</div>
+    <div id="t8_1" listen="billBreakup.monthlyCharges" class="t s2_1">{{billBreakup.monthlyCharges | number:2}}</div>
 
     <div id="t9_1" class="t s2_1">3</div>
 
@@ -798,25 +798,27 @@
 
     <div id="tb_1" class="t s2_1">call charges</div>
 
-    <div id="tc_1" class="t s2_1">651.20</div>
+    <div id="tc_1" listen="billBreakup.callCharges" class="t s2_1">{{billBreakup.callCharges | number:2}}</div>
 
     <div id="td_1" class="t s2_1">value added services</div>
 
-    <div id="te_1" class="t s2_1">26.50</div>
+    <div id="te_1" listen="billBreakup.valueAddedServices"
+         class="t s2_1">{{billBreakup.valueAddedServices | number:2}}</div>
 
     <div id="tf_1" class="t s2_1">mobile internet usage</div>
 
-    <div id="tg_1" class="t s2_1">1,726.95</div>
+    <div id="tg_1" listen="billBreakup.valueAddedServices"
+         class="t s2_1">{{billBreakup.mobileInternetUsage | number:2}}</div>
 
     <div id="th_1" class="t s2_1">roaming</div>
 
-    <div id="ti_1" class="t s2_1">71.48</div>
+    <div id="ti_1" listen="billBreakup.roaming" class="t s2_1">{{billBreakup.roaming | number:2}}</div>
 
     <div id="tj_1" class="t s2_1">4</div>
 
     <div id="tk_1" class="t s2_1">discounts</div>
 
-    <div id="tl_1" class="t s2_1">-2,042.75</div>
+    <div id="tl_1" listen="billBreakup.discounts" class="t s2_1">{{-billBreakup.discounts | number:2}}</div>
 
     <div id="tm_1" class="t s2_1">5</div>
 
@@ -828,13 +830,13 @@
 
     <div id="tq_1" class="t s2_1">taxes</div>
 
-    <div id="tr_1" class="t s2_1">116.51</div>
+    <div id="tr_1" listen="billBreakup.taxes" class="t s2_1">{{billBreakup.taxes | number:2}}</div>
 
     <div id="ts_1" class="t s2_1">this month's charges</div>
 
     <div id="tt_1" class="t s2_1">`</div>
 
-    <div id="tu_1" class="t s2_1">948.89</div>
+    <div id="tu_1" listen="billBreakup.totalBillAmount" class="t s2_1">{{billBreakup.totalBillAmount | number:2}}</div>
 
     <div id="tv_1" class="t s3_1">service tax registration no. :</div>
 
@@ -876,15 +878,17 @@
 
     <div id="t1g_1" listen="billDate" class="t s2_1" ng-bind="billDate | date:'dd-MMM-yyyy'"></div>
 
-    <div id="t1h_1" class="t s2_1">881.83</div>
+    <div id="t1h_1" listen="billSummary.previousBalance" class="t s2_1">{{billSummary.previousBalance | number:2}}</div>
 
-    <div id="t1i_1" class="t s2_1">881.83</div>
+    <div id="t1i_1" listen="billSummary.previousPayment" class="t s2_1">{{billSummary.previousPayment | number:2}}</div>
 
-    <div id="t1j_1" class="t s2_1">948.89</div>
+    <div id="t1j_1" listen="billSummary.newBillAmount" class="t s2_1">{{billSummary.newBillAmount | number:2}}</div>
 
-    <div id="t1k_1" class="t s2_1">948.89</div>
+    <div id="t1k_1" listen="billSummary.dueAmountTillPayByDate"
+         class="t s2_1">{{billSummary.dueAmountTillPayByDate | number:2}}</div>
 
-    <div id="t1l_1" class="t s2_1">1,048.89</div>
+    <div id="t1l_1" listen="billSummary.dueAmountAfterPayByDate"
+         class="t s2_1">{{billSummary.dueAmountAfterPayByDate | number:2}}</div>
 
     <div id="t1m_1" listen="fromDate" class="t s2_1" ng-bind="fromDate | date:'dd-MMM-yyyy'"></div>
 
@@ -910,7 +914,7 @@
 
     <div id="t1y_1" listen="city" class="t s9_1">{{city}}</div>
 
-    <div id="t1z_1" listen="pincode"  class="t s9_1">{{pincode}}</div>
+    <div id="t1z_1" listen="pincode" class="t s9_1">{{pincode}}</div>
 
     <div id="t20_1" class="t s2_1">cheque / dd / pay order no.</div>
 
@@ -932,7 +936,7 @@
 
     <div id="t29_1" class="t s3_1">AAACB2894GST036 under Category TELECOMMUNICATION SERVICE</div>
 
-    <div id="t2a_1" class="t s2_1">948.89</div>
+    <div id="t2a_1" listen="billSummary.dueAmountTillPayByDate" class="t s2_1">{{billSummary.dueAmountTillPayByDate | number:2}}</div>
 
     <div id="t2b_1" class="t s5_1">before</div>
 
@@ -991,7 +995,8 @@
     <div id="t32_1" class="t s2_1">has been revised from 12.36% to 14%.</div>
 
     <div id="t33_1"
-         class="t s2_1">to make payments, kindly make crossed cheque/dd/pay order in favour of "airtel mobile no. - <kk listen="mobileNumber">{{mobileNumber}}</kk>"</div>
+         class="t s2_1">to make payments, kindly make crossed cheque/dd/pay order in favour of "airtel mobile no. - <kk
+            listen="mobileNumber">{{mobileNumber}}</kk>"</div>
 
     <div id="t34_1" class="t s12_1">page 1</div>
 

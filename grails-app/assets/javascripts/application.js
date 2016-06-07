@@ -37,7 +37,13 @@ window.RightMenu = {
     init: function () {
         $("#accordion").accordion();
         var controls = "input,textarea";
+        var isCheckBox = function (input) {
+            return (input.type == "checkbox");
+        };
         var addLabel = function (event, on, invert) {
+            if (isCheckBox(on)) {
+                return
+            }
             var labelFor = $(on).attr("ng-model");
             var labelText = $(on).attr("placeholder") + ':';
             var labelQuery = 'div[used-for="' + labelFor + '"]';
@@ -54,6 +60,9 @@ window.RightMenu = {
             }
         };
         var perform = function (event, on, toggleEffect) {
+            if (isCheckBox(on)) {
+                return
+            }
             var highlightOn = $(on).attr("ng-model");
             var items = $('*[listen="' + highlightOn + '"]');
             if (toggleEffect) {
@@ -110,5 +119,41 @@ app.controller('BillInfoCtrl', function ($scope) {
     $scope.payByDate = new Date();
     $scope.creditLimit = "1,800.00";
     $scope.securityDeposite = "0.00";
+
+    $scope.billBreakup = {
+        monthlyCharges: 399,
+        callCharges: 119.70,
+        mobileInternetUsage: 987.99,
+        valueAddedServices: 36,
+        roaming: 8.70,
+        discounts: 1109.19,
+        taxes: 64.14,
+        totalBillAmount: 506.34
+    };
+
+    $scope.billSummary = {
+        previousBalance: 524.48,
+        previousPayment: 525,
+        newBillAmount: 1000,
+        dueAmountTillPayByDate:0,/* (function () {
+            return ($scope.billSummary.newBillAmount + $scope.billSummary.previousBalance - $scope.billSummary.previousPayment);
+        })(),*/
+        dueAmountAfterPayByDate: 0/*(function () {
+            return ($scope.billSummary.dueAmountTillPayByDate + 100)
+        })()*/
+    };
+
+    $scope.calculate = function () {
+        var breakup = {
+            monthlyCharges: 0,
+            callCharges: 0,
+            mobileInternetUsage: 0,
+            valueAddedServices: 0,
+            roaming: 0,
+            discounts: 0,
+            taxes: 0,
+            totalBillAmount: 0
+        };
+    };
 });
 
